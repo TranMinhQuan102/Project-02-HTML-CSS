@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #ffb900;
+    --font-heading: Sen, sans-serif;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -36,9 +41,50 @@ a {
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 50px; /* 175% */
-    border-radius: 24.5px;
+    border-radius: 999px;
     background: #171100;
+    cursor: pointer;
 }
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.heading {
+    font-family: var(--font-heading);
+    color: #171100;
+    font-weight: 700;
+
+    letter-spacing: -0.02rem;
+}
+
+.heading.lv1 {
+    font-size: 5.8rem;
+    line-height: 1.17; /* 117.241% */
+}
+
+.heading.lv2 {
+    font-size: 3.8rem;
+    line-height: 1.26; /* 126.316% */
+}
+
+/* Khi viết từ quá dài, thì xuống dòng. Nếu dài hơn thì để dấu "..."\ */
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp, 1);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp.line-2 {
+    --line-clamp: 2;
+}
+
+.word-break-all {
+    word-break: break-all;
+}
+
 /* ------------------------------- Header ------------------------------- */
 .header {
     background: #fffcf4;
@@ -47,6 +93,7 @@ a {
 .header .fixed {
     position: sticky;
     top: -28px;
+    z-index: 1;
 }
 
 .header .Header-body {
@@ -99,4 +146,277 @@ a {
 
 .header .action {
     margin-left: 49px;
+}
+
+/* ------------------------------- Hero ------------------------------- */
+/* ---------- Hero-Left ---------- */
+.hero {
+    padding: 56px 0 65px;
+    background-color: #fffcf4;
+}
+
+.hero .hero-body {
+    display: flex;
+}
+
+.hero .media-block {
+    width: 48%;
+    position: relative;
+}
+
+/* Edit random image to fix with the design */
+
+.hero .media-block .img {
+    width: 470px;
+    height: 685px;
+    object-fit: cover; /* Để ảnh không bị méo */
+    border-radius: 20px;
+    display: block;
+}
+
+.hero-summary {
+    position: absolute;
+    right: 0;
+    bottom: 48px;
+    width: 270px;
+    padding: 24px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+}
+
+.hero-summary .item {
+    display: flex;
+    align-items: center;
+}
+/* Tác động khoảng cách từ cái thứ 2 trở đi */
+.hero-summary .item + .item {
+    margin-top: 22px;
+}
+
+/* Cùng chung 1 tên class nhưng muốn tác động riêng biệt đến từng thành phần */
+.hero-summary .item:nth-of-type(2) .icon {
+    background-color: #fcefff;
+}
+
+.hero-summary .item:nth-of-type(3) .icon {
+    background-color: #ebeaff;
+}
+
+.hero-summary .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff9e8;
+}
+
+.hero-summary .info {
+    margin-left: 16px;
+}
+
+.hero-summary .info .label {
+    color: #5f5b53;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.85; /* 185.714% */
+}
+
+.hero-summary .info .title {
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.66; /* 166.667% */
+}
+
+/* ---------- Hero-Right ---------- */
+.hero .content-block {
+    width: 52%;
+    padding: 64px 0 0 130px;
+}
+
+.hero .content-block .desc {
+    margin-top: 22px;
+    color: #5f5b53;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.66; /* 166.667% */
+}
+
+.hero .cta-group {
+    display: flex;
+    align-items: center;
+    margin: 38px 0 48px;
+}
+
+.hero-cta {
+    min-width: 180px;
+    line-height: 64px;
+    background-color: var(--primary-color);
+}
+
+.hero .watch-video {
+    display: flex;
+    align-items: center;
+    margin-left: 28px;
+    border: none;
+    /* background-color: white; */
+    cursor: pointer;
+    background: transparent;
+}
+
+.hero .watch-video .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+
+    /* background-color: red; */
+}
+
+.hero .watch-video span {
+    margin-left: 14px;
+    font-weight: 600;
+    color: #171100;
+    font-size: 1.8rem;
+    line-height: 1.67;
+}
+
+.hero .stats strong {
+    padding: 0 8px 0 28px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 4.4rem;
+    line-height: 1.23;
+    color: #171100;
+}
+
+.hero .stats {
+    margin: 8px 0 0 -28px;
+}
+
+/* ------------------------------- Popular ------------------------------- */
+/* ---------- Popular-Top ---------- */
+.popular {
+    padding: 65px 0px;
+    margin-top: 135px;
+}
+
+.popular-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popular-top .desc {
+    margin-top: 16px;
+    width: 458px;
+    color: #5f5b53;
+    font-size: 1.8rem;
+    line-height: 1.66; /* 166.667% */
+}
+
+.popular-top .control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 98px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--primary-color);
+    border: 1px none var(--primary-color);
+    background: transparent;
+}
+
+.popular .course-list {
+    /* margin-left: 175px; Nếu ảnh sai không đúng kích thước thì bỏ margin-left và right */
+
+    /* margin-right: 175px; Nếu ảnh sai không đúng kích thước thì bỏ margin-left và right */
+
+    display: flex;
+    gap: 30px;
+    margin-top: 55px;
+}
+
+.popular .course-item {
+    flex: 1;
+    border-radius: 12px;
+    box-shadow: 0px 18px 36px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    border: 1px solid #e2dfda;
+    background: #fff;
+}
+
+.popular .course-item:hover {
+    border-color: transparent;
+    box-shadow: 0px 18px 36px 0px rgba(0, 0, 0, 0.05);
+}
+
+.popular .course-item .thumb {
+    width: calc(100% + 0px);
+    height: 278;
+    object-fit: cover;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.popular .course-item .info {
+    padding: 16px 22px 22px 22px;
+}
+.popular .course-item .foot,
+.popular .course-item .rating,
+.popular .course-item .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popular .course-item .title a {
+    padding-right: 8px;
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.66; /* 166.667% */
+}
+
+.popular .course-item .star {
+    margin-right: 6px;
+}
+
+.popular .course-item .value {
+    color: #fea31b;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.75; /* 175% */
+}
+.popular .course-item .desc {
+    margin-top: 6px;
+    color: #5f5b53;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.85; /* 185.714% */
+}
+
+.popular .course-item .foot {
+    margin-top: 12px;
+}
+
+.popular .course-item .price {
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.66; /* 166.667% */
+}
+
+.popular .course-item .book-btn {
+    border: none;
+}
+
+.popular .course-item .book-btn:hover {
+    color: white;
+    background: #ffb900;
 }
