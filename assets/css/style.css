@@ -321,16 +321,27 @@ a {
     line-height: 1.66; /* 166.667% */
 }
 
+.popular-top .controls {
+    display: flex;
+    gap: 18px;
+}
+
 .popular-top .control-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 98px;
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     color: var(--primary-color);
-    border: 1px none var(--primary-color);
+    border: 1px solid var(--primary-color);
     background: transparent;
+    cursor: pointer;
+}
+
+.popular-top .control-btn:hover {
+    color: white;
+    background-color: var(--primary-color);
 }
 
 .popular .course-list {
